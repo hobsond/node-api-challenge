@@ -12,6 +12,12 @@ router.post('/:id',(req,res)=>{
     .catch(err=>res.status(400).json({error:'We cann not add '}))
 })
 
+router.get('/',(req,res)=>{
+    Db.get()
+    .then(item=>res.status(200).json(item))
+    .catch(err=>res.status(400).json({error:'could not grab users'}))
+})
+
 router.get('/:id',(req,res)=>{
     const id = req.params.id
     Db.get(id)
